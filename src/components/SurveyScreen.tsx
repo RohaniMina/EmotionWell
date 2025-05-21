@@ -24,12 +24,12 @@ const SurveyScreen = ({ session, onComplete }: SurveyScreenProps) => {
   const handleNextQuestion = () => {
     if (selectedOption === null) return;
     
-    // Save the response
+    // Save the response with the correct type
     const newResponse: SurveyResponse = {
       questionId: currentQuestion.id,
       question: currentQuestion.question,
       response: selectedOption,
-      type: currentQuestion.type,
+      type: currentQuestion.type as 'cognitive' | 'emotional',
     };
     
     setResponses([...responses, newResponse]);
