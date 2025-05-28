@@ -105,7 +105,7 @@ const SurveyScreen = ({ session, onComplete }: SurveyScreenProps) => {
           <Button
             onClick={handleNextQuestion}
             disabled={selectedOption === null}
-            className="bg-gradient-to-r from-calm-500 to-healing-500 hover:from-calm-600 hover:to-healing-600 text-white"
+            className="bg-green-600 hover:bg-green-700 text-white font-bold px-6"
           >
             {currentQuestionIndex < surveyQuestions.length - 1 ? "Next Question" : "Complete Survey"}
           </Button>

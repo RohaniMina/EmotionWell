@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { UserSession } from "@/lib/types";
+import UserBadges from "./UserBadges";
 
 interface DashboardScreenProps {
   sessions: UserSession[];
@@ -23,11 +24,16 @@ const DashboardScreen = ({ sessions, onStartNewSession, onContinueSession }: Das
         <div>
           <h2 className="text-3xl font-bold">Your Wellbeing Dashboard</h2>
           <p className="text-muted-foreground mt-1">Track and manage your emotional wellbeing sessions</p>
+          {sessions.length > 0 && (
+            <div className="mt-3">
+              <UserBadges sessions={sessions} />
+            </div>
+          )}
         </div>
         
         <Button 
           onClick={onStartNewSession}
-          className="bg-gradient-to-r from-calm-500 to-healing-500 hover:from-calm-600 hover:to-healing-600 text-white"
+          className="bg-green-600 hover:bg-green-700 text-white font-bold"
         >
           Start New Journey
         </Button>
@@ -45,10 +51,11 @@ const DashboardScreen = ({ sessions, onStartNewSession, onContinueSession }: Das
               <h3 className="text-xl font-medium">No Sessions Yet</h3>
               <p className="text-muted-foreground max-w-md">
                 Start your first wellbeing journey by identifying a negative product experience you'd like to process.
+                Earn Amazon credits and achievement badges!
               </p>
               <Button 
                 onClick={onStartNewSession}
-                className="bg-gradient-to-r from-calm-500 to-healing-500 hover:from-calm-600 hover:to-healing-600 text-white mt-2"
+                className="bg-green-600 hover:bg-green-700 text-white font-bold mt-2"
               >
                 Begin Your First Session
               </Button>
@@ -98,8 +105,7 @@ const DashboardScreen = ({ sessions, onStartNewSession, onContinueSession }: Das
                       <div className="flex justify-end mt-4">
                         <Button
                           onClick={() => onContinueSession(session)}
-                          variant="outline"
-                          className="text-calm-600 border-calm-200 hover:bg-calm-50"
+                          className="bg-green-600 hover:bg-green-700 text-white font-bold"
                         >
                           Continue Journey
                         </Button>
@@ -137,7 +143,7 @@ const DashboardScreen = ({ sessions, onStartNewSession, onContinueSession }: Das
                         <div className="space-y-1">
                           <div className="text-muted-foreground">Initial Score</div>
                           <div className="font-medium">
-                            {session.sessionHistory[0]?.angerScore.toFixed(1)}/5
+                            {session.sessionHistory[0]?.angerScore.toFixed(1) || "N/A"}/5
                           </div>
                         </div>
                         <div className="space-y-1 text-right">
