@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { UserSession } from "@/lib/types";
 import UserBadges from "./UserBadges";
+import BadgeShowcase from "./BadgeShowcase";
 
 interface DashboardScreenProps {
   sessions: UserSession[];
@@ -38,6 +39,10 @@ const DashboardScreen = ({ sessions, onStartNewSession, onContinueSession }: Das
           Start New Journey
         </Button>
       </div>
+      
+      {sessions.length > 0 && (
+        <BadgeShowcase sessions={sessions} />
+      )}
       
       {sessions.length === 0 ? (
         <Card className="border-dashed border-2 bg-muted/50">

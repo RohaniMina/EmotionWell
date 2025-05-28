@@ -37,7 +37,7 @@ const SurveyScreen = ({ session, onComplete }: SurveyScreenProps) => {
     // Move to next question or complete
     if (currentQuestionIndex < surveyQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-      setSelectedOption(null);
+      setSelectedOption(null); // Reset selection for next question
     } else {
       onComplete([...responses, newResponse]);
     }
@@ -63,15 +63,15 @@ const SurveyScreen = ({ session, onComplete }: SurveyScreenProps) => {
             
             <h3 className="text-xl font-medium mb-6">{currentQuestion.question}</h3>
             
-            <RadioGroup value={selectedOption?.toString()} className="space-y-3">
+            <RadioGroup value={selectedOption?.toString() || ""} onValueChange={(value) => setSelectedOption(parseInt(value) + 1)} className="space-y-4">
               {currentQuestion.options.map((option, index) => (
-                <div key={index} className="flex items-center space-x-2">
+                <div key={index} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 cursor-pointer border border-transparent hover:border-gray-200">
                   <RadioGroupItem
                     value={index.toString()}
                     id={`option-${index}`}
-                    onClick={() => setSelectedOption(index + 1)}
+                    className="cursor-pointer"
                   />
-                  <Label htmlFor={`option-${index}`} className="text-base">
+                  <Label htmlFor={`option-${index}`} className="text-base cursor-pointer flex-1 leading-relaxed">
                     {option}
                   </Label>
                 </div>
@@ -95,7 +95,9 @@ const SurveyScreen = ({ session, onComplete }: SurveyScreenProps) => {
               if (currentQuestionIndex > 0) {
                 setCurrentQuestionIndex(currentQuestionIndex - 1);
                 setResponses(responses.slice(0, -1));
-                setSelectedOption(responses[responses.length - 1]?.response || null);
+                // Set the previous response as selected
+                const previousResponse = responses[responses.length - 1];
+                setSelectedOption(previousResponse ? previousResponse.response : null);
               }
             }}
             disabled={currentQuestionIndex === 0}
