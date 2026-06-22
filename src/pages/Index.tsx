@@ -122,13 +122,31 @@ const Index = () => {
   
   // Handler for continuing an existing session
   const handleContinueSession = (session: UserSession) => {
-    setCurrentSession(session);
-    
     if (session.completed) {
+      setCurrentSession(session);
       setAppState("completion");
-    } else {
-      setAppState("survey");
+      return;
     }
+
+    if (!isSessionDue(session)) {
+      const dateLabel = session.nextSessionDate
+        ? new Date(session.nextSessionDate).toLocaleDateString(undefined, {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          })
+        : "soon";
+      toast({
+        title: "Not quite time yet",
+        description: `Your next check-in will be available on ${dateLabel}. Taking space between rounds is part of how this works.`,
+        duration: 6000,
+      });
+      setAppState("dashboard");
+      return;
+    }
+
+    setCurrentSession(session);
+    setAppState("intro");
   };
   
   // Render different screens based on app state
