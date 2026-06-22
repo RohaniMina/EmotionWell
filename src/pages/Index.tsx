@@ -9,9 +9,7 @@ import ExpressiveWritingScreen from "@/components/ExpressiveWritingScreen";
 import CompletionScreen from "@/components/CompletionScreen";
 import DashboardScreen from "@/components/DashboardScreen";
 import { UserSession, SurveyResponse } from "@/lib/types";
-import { useUserSessions, completeSession } from "@/lib/dataService";
-import { useToast } from "@/components/ui/use-toast";
-
+import { useUserSessions, completeSession, optOutSession, isSessionDue } from "@/lib/dataService";import { useToast } from "@/components/ui/use-toast";
 // App flow states
 type AppState = 
   | "welcome"
