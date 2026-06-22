@@ -8,6 +8,7 @@ export interface UserSession {
   completed: boolean;
   sessionHistory: SessionHistory[];
   nextSessionDate?: Date;
+  optedOut?: boolean;
 }
 
 export interface SessionHistory {
