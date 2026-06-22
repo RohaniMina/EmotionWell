@@ -89,6 +89,22 @@ export const completeSession = (
   return updatedSession;
 };
 
+// Permanently stop sending this user future check-ins for this experience
+export const optOutSession = (session: UserSession): UserSession => {
+  return {
+    ...session,
+    completed: true,
+    optedOut: true,
+    nextSessionDate: undefined,
+  };
+};
+
+// Has this session's scheduled check-in date arrived yet?
+export const isSessionDue = (session: UserSession): boolean => {
+  if (!session.nextSessionDate) return true;
+  return new Date() >= new Date(session.nextSessionDate);
+};
+
 // Custom hook to work with user sessions
 export const useUserSessions = () => {
   const [sessions, setSessions] = useState<UserSession[]>([]); 
