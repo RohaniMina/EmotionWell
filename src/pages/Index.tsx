@@ -56,6 +56,17 @@ const Index = () => {
   
   // Handler for declining a wellbeing session
   const handleDeclineSession = () => {
+    // If this session was already saved, declining now means opting out of future check-ins
+    if (currentSession && sessions.some(s => s.id === currentSession.id)) {
+      const optedOutSession = optOutSession(currentSession);
+      updateSession(optedOutSession);
+      toast({
+        title: "You're all set",
+        description: "We won't send any more check-ins for this experience. You can always start a new one if something changes.",
+        duration: 6000,
+      });
+    }
+
     setCurrentSession(null);
     if (sessions.length > 0) {
       setAppState("dashboard");
