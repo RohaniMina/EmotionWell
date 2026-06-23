@@ -52,34 +52,7 @@ const IntroScreen = ({ session, onStart, onDecline }: IntroScreenProps) => {
         </div>
       )
     },
-    {
-      icon: <Trophy className="w-12 h-12 text-yellow-500" />,
-      title: "Earn Achievement Badges",
-      content: (
-        <div className="space-y-4 text-center">
-          <div className="grid grid-cols-2 gap-3">
-            <div className="bg-orange-50 p-3 rounded border border-orange-200">
-              <div className="text-orange-600 font-bold">🥉 Bronze</div>
-              <div className="text-xs">30% completion</div>
-            </div>
-            <div className="bg-gray-50 p-3 rounded border border-gray-200">
-              <div className="text-gray-600 font-bold">🥈 Silver</div>
-              <div className="text-xs">60% completion</div>
-            </div>
-            <div className="bg-yellow-50 p-3 rounded border border-yellow-200">
-              <div className="text-yellow-600 font-bold">🥇 Gold</div>
-              <div className="text-xs">80% completion</div>
-            </div>
-            <div className="bg-purple-50 p-3 rounded border border-purple-200">
-              <div className="text-purple-600 font-bold">✍️ Writer</div>
-              <div className="text-xs">Deep expression</div>
-            </div>
-          </div>
-          <p className="text-sm">Track your progress and earn recognition!</p>
-        </div>
-      )
-    }
-  ];
+    ];
   
   return (
     <div className="max-w-3xl mx-auto">
