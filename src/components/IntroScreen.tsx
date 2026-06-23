@@ -86,7 +86,7 @@ const IntroScreen = ({ session, onStart, onDecline }: IntroScreenProps) => {
               htmlFor="consent"
               className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
             >
-              I understand the benefits and want to participate in this wellbeing program to earn Amazon credits.
+              I understand what this program involves and want to participate.
             </label>
           </div>
         </CardContent>
