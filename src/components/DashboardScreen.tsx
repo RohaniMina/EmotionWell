@@ -2,8 +2,6 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { UserSession } from "@/lib/types";
-import UserBadges from "./UserBadges";
-import BadgeShowcase from "./BadgeShowcase";
 
 interface DashboardScreenProps {
   sessions: UserSession[];
@@ -25,11 +23,6 @@ const DashboardScreen = ({ sessions, onStartNewSession, onContinueSession }: Das
         <div>
           <h2 className="text-3xl font-bold">Your Wellbeing Dashboard</h2>
           <p className="text-muted-foreground mt-1">Track and manage your emotional wellbeing sessions</p>
-          {sessions.length > 0 && (
-            <div className="mt-3">
-              <UserBadges sessions={sessions} />
-            </div>
-          )}
         </div>
         
         <Button 
@@ -40,9 +33,6 @@ const DashboardScreen = ({ sessions, onStartNewSession, onContinueSession }: Das
         </Button>
       </div>
       
-      {sessions.length > 0 && (
-        <BadgeShowcase sessions={sessions} />
-      )}
       
       {sessions.length === 0 ? (
         <Card className="border-dashed border-2 bg-muted/50">
@@ -56,7 +46,6 @@ const DashboardScreen = ({ sessions, onStartNewSession, onContinueSession }: Das
               <h3 className="text-xl font-medium">No Sessions Yet</h3>
               <p className="text-muted-foreground max-w-md">
                 Start your first wellbeing journey by identifying a negative product experience you'd like to process.
-                Earn Amazon credits and achievement badges!
               </p>
               <Button 
                 onClick={onStartNewSession}
