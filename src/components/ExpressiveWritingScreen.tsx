@@ -164,12 +164,12 @@ const ExpressiveWritingScreen = ({ session, onComplete }: ExpressiveWritingScree
     };
   }, []);
   
-  const encouragementMessages = [
-    "Keep exploring your feelings about this experience...",
-    "What else comes to mind when you think about this situation?",
-    "How did this experience make you feel? Continue expressing...",
-    "You're doing great! Keep writing about your thoughts and emotions...",
-    "What impact did this experience have on you? Continue sharing..."
+const encouragementMessages = [
+    `What specifically about ${session.productName} let you down the most?`,
+    `How has dealing with ${session.productName} affected your day, beyond just the product itself?`,
+    `What did you expect to happen, and how was this different?`,
+    `What are you feeling right now, as you think back on this?`,
+    `Is there anything about this experience you haven't said yet?`,
   ];
   
   const randomEncouragement = encouragementMessages[Math.floor(Math.random() * encouragementMessages.length)];
@@ -268,11 +268,11 @@ const ExpressiveWritingScreen = ({ session, onComplete }: ExpressiveWritingScree
               
               <div className="text-sm text-muted-foreground italic">
                 {text.length < 50 ? (
-                  "Start writing about how this experience made you feel..."
+                  `Start writing about how your experience with ${session.productName} made you feel...`
                 ) : text.length < 200 ? (
-                  "Good start! Try to go deeper into your emotions and thoughts..."
+                  `Good start! What else happened with ${session.productName}, and how did it affect you?`
                 ) : (
-                  "Great expression! Continue exploring your feelings about this experience..."
+                  "Great expression! Keep exploring your feelings about this experience..."
                 )}
               </div>
             </div>
