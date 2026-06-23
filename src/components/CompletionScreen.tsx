@@ -76,11 +76,11 @@ const CompletionScreen = ({ session, onFinish }: CompletionScreenProps) => {
                   <div className="bg-green-50 rounded-lg p-6 border border-green-200">
                     <div className="flex items-center justify-center mb-3">
                       <Gift className="w-8 h-8 text-green-600 mr-2" />
-                      <h4 className="font-bold text-lg text-green-700">Amazon Credits Earned!</h4>
+                      <h4 className="font-bold text-lg text-green-700">A Small Thank You</h4>
                     </div>
                     <p className="text-green-800 mb-4">
-                      Your Amazon credits will be processed and added to your account within 3-5 business days.
-                      Thank you for investing in your wellbeing!
+                      We noticed the real time and care you put into working through this. As a thank-you,
+                      a small credit is on its way to your account, no strings attached, it'll show up within 3-5 business days.
                     </p>
                     <div className="flex items-center justify-center gap-4 text-sm">
                       <div className="flex flex-col items-center">
@@ -133,9 +133,7 @@ const CompletionScreen = ({ session, onFinish }: CompletionScreenProps) => {
                     <div className="text-xl font-medium text-calm-600 mt-3">
                       {formatDate(nextDate)}
                     </div>
-                    <p className="text-sm text-calm-600 mt-2">
-                      Complete all sessions to earn your Amazon credits!
-                    </p>
+
                   </div>
                   
                   <p>
