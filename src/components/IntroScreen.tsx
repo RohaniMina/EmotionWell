@@ -36,23 +36,6 @@ const IntroScreen = ({ session, onStart, onDecline }: IntroScreenProps) => {
       )
     },
     {
-      icon: <Gift className="w-12 h-12 text-green-500" />,
-      title: "Earn Amazon Credits",
-      content: (
-        <div className="space-y-4 text-center">
-          <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-            <h4 className="font-bold text-green-700 mb-2">🎁 Reward for Completion</h4>
-            <p className="text-green-800">
-              Complete all your wellbeing sessions and receive <span className="font-bold">Amazon credits</span> directly to your account!
-            </p>
-          </div>
-          <p className="text-sm">
-            Your emotional wellness journey is valuable - we believe in rewarding your commitment to better health.
-          </p>
-        </div>
-      )
-    },
-    {
       icon: <BookOpen className="w-12 h-12 text-calm-500" />,
       title: "Research-Backed Approach",
       content: (
